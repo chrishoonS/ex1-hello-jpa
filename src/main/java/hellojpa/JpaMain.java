@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -24,25 +23,10 @@ public class JpaMain {
         tx.begin(); // 트랜잭션 시작
 
         try{
-//            // 객체를 생성한 상태(비영속)
-//            Member member = new Member();
-//            member.setId(101L);
-//            member.setName("HelloJPA");
-//
-////            em.detach(member); // 회원 엔티티를 영속성 컨텍스트에서 분리, 준영속 상태
-////            em.remove(member); // 객체를 삭제한 상태
-//            System.out.println("=== BEFORE ===");
-//            em.persist(member); // 객체를 저장한 상태(영속) = 1차 캐시에 저장됨
-//            System.out.println("=== AFTER ===");
-//
-//            Member findMember = em.find(Member.class, 101L);   // 1차 캐시에서 조회
-//
-//            System.out.println("findMember.id === " + findMember.getId());
-//            System.out.println("findMember.name === " + findMember.getName());
-//
-            Member findMember1 = em.find(Member.class, 101L);
-            Member findMember2 = em.find(Member.class, 101L);
-            System.out.println("result === " + (findMember1 == findMember2)); // 같은 트랜잭션 안에서 엔티티를 동일하게 취급
+            Member member = new Member(200L, "member200");
+            em.persist(member);
+
+            em.flush(); // 플러시 : 영속성 컨텍스트의 변경내용을 데이터베이스에 커밋 직전에만 동기화
 
             System.out.println("=====================");
 
