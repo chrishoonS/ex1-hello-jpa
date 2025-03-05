@@ -23,12 +23,6 @@ public class JpaMain {
         tx.begin(); // 트랜잭션 시작
 
         try{
-            Member member = new Member(200L, "member200");
-            em.persist(member);
-
-            em.flush(); // 플러시 : 영속성 컨텍스트의 변경내용을 데이터베이스에 커밋 직전에만 동기화
-
-            System.out.println("=====================");
 
             tx.commit(); // -> AFTER 이후에 트랜잭션 커밋 시점에서 insert 쿼리 생성
 

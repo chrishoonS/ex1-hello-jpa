@@ -14,9 +14,16 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments" value="true"/>
+
             <!-- hibernate.jdbc.batch_size=10 설정 시, Hibernate는 10개의 INSERT를 한 번에 처리하여 DB와의 네트워크 트래픽을 줄이고 성능을 향상-->
             <property name="hibernate.jdbc.batch_size" value="10"/>
-            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+            <!--
+                데이터베이스 스키마 자동생성
+                value = create, create-drop, update, validate, none
+                로컬 환경에서만 사용, 운영에서 사용 X
+                데이터베이스 타입에 따라 변경 여부 확인
+            -->
+            <property name="hibernate.hbm2ddl.auto" value="none" />
         </properties>
     </persistence-unit>
 </persistence>

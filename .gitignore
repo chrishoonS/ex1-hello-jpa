@@ -5,6 +5,7 @@ target/
 
 ### IntelliJ IDEA ###
 /.idea/
+.idea/inspectionProfiles/Project_Default.xml
 .idea/modules.xml
 .idea/compiler.xml
 .idea/jarRepositories.xml
